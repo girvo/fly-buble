@@ -1,11 +1,11 @@
 module.exports = function () {
-  return this.filter('buble', function (data, options) {
+  		return this.filter('buble', function (data, options) {
       // doc: Require Bublé for transforming ES2015 to ES5
-      var buble = require('buble')
+      		var buble = require('buble')
       // doc: Default the incoming options object
-      var options = typeof options !== 'undefined' ? options : {}
+      		var options = typeof options !== 'undefined' ? options : {}
 
       // doc: Transform and return!
-      return buble.transform(data, options)
+      		return buble.transform(data, options)
   })
 }
