@@ -13,9 +13,12 @@
 [![][mit-badge]][mit]
 
 ## Usage
-Please see the example below. Keep in mind this is very new, and I haven't integrated source filenames into the source-mapping yet!
+Please see the example below. Keep in mind this is very new, and I haven't integrated source filenames into the source-mapping yet, but everything else should work.
 
 All options map directly to what's [available in the Javascript api](https://buble.surge.sh/guide/#using-the-javascript-api), and are passed directly through to Bublé unmodified (for now).
+
+Bublé is a very fast ES2015 compiler/transpiler, that aims for a subset of ES2015 that can be easily and quickly compiled to readable ES5, without munging your code or introducing unexpected performance decreases. It does not include a module system nor any ES5 shims, so you're going to want to provide those yourself if required (I recommend Rollup for the module handling, and `es5-shim` is always a good choice). Check out [Bublé's documentation](https://buble.surge.sh/guide/) for more
+information.
 
 ### Install
 
