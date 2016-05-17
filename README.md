@@ -13,7 +13,7 @@
 [![][mit-badge]][mit]
 
 ## Usage
-See the example below. Keep in mind this is very new, and I haven't integrated source filenames into the source-mapping yet!
+Please see the example below. Keep in mind this is very new, and I haven't integrated source filenames into the source-mapping yet!
 
 All options map directly to what's [available in the Javascript api](https://buble.surge.sh/guide/#using-the-javascript-api), and are passed directly through to Bublé unmodified (for now).
 
