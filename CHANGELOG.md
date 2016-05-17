@@ -6,8 +6,8 @@
 
 ## Changelog
 
- * 0.0.0
+ * 0.1.0
 
-### v0.0.0
+### v0.1.0
 
- * buble initial commit.
+ * Created base fly plugin for the Bublè ES2015 to ES5 compiler

@@ -25,7 +25,8 @@
     "url": "http://github.com/girvo"
   },
   "dependencies": {
-    "buble": "^0.8.4"
+    "buble": "^0.8.4",
+    "object-assign": "^4.1.0"
   },
   "devDependencies": {
     "tap-spec": "^4.1.1",

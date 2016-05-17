@@ -4,7 +4,7 @@
   </a>
 </div>
 
-> [Buble](https://github.com/girvo/fly-buble) plugin for _[Fly][fly]_.
+> [Bublé](https://buble.surge.sh/guide/) plugin for _[Fly][fly]_.
 
 [![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
@@ -13,7 +13,9 @@
 [![][mit-badge]][mit]
 
 ## Usage
-> Check out the [documentation](PLUGIN_DOCUMENTATION) to see the available options.
+See the example below. Keep in mind this is very new, and I haven't integrated source filenames into the source-mapping yet!
+
+All options map directly to what's [available in the Javascript api](https://buble.surge.sh/guide/#using-the-javascript-api), and are passed directly through to Bublé unmodified (for now).
 
 ### Install
 
@@ -25,7 +27,16 @@ npm install -D fly-buble
 
 ```js
 export default function* () {
-  yield ...
+  yield this
+    .source('src/**/*.js')
+    .buble({
+      transforms: {
+        arrow: true,
+        modules: false,
+        dangerousForOf: true
+      }
+    })
+    .target('dist/')
 }
 ```
 
@@ -36,13 +47,13 @@ export default function* () {
 
 [mit]:          http://opensource.org/licenses/MIT
 [author]:       http://github.com/girvo
-[contributors]: https://github.com/girvo/buble/graphs/contributors
-[releases]:     https://github.com/girvo/buble/releases
+[contributors]: https://github.com/girvo/fly-buble/graphs/contributors
+[releases]:     https://github.com/girvo/fly-buble/releases
 [fly]:          https://www.github.com/flyjs/fly
 [fly-badge]:    https://img.shields.io/badge/fly-JS-05B3E1.svg?style=flat-square
 [mit-badge]:    https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
-[npm-pkg-link]: https://www.npmjs.org/package/buble
-[npm-ver-link]: https://img.shields.io/npm/v/buble.svg?style=flat-square
-[dl-badge]:     http://img.shields.io/npm/dm/buble.svg?style=flat-square
-[travis-link]:  https://travis-ci.org/girvo/buble
-[travis-badge]: http://img.shields.io/travis/girvo/buble.svg?style=flat-square
+[npm-pkg-link]: https://www.npmjs.org/package/fly-buble
+[npm-ver-link]: https://img.shields.io/npm/v/fly-buble.svg?style=flat-square
+[dl-badge]:     http://img.shields.io/npm/dm/fly-buble.svg?style=flat-square
+[travis-link]:  https://travis-ci.org/girvo/fly-buble
+[travis-badge]: http://img.shields.io/travis/girvo/fly-buble.svg?style=flat-square
