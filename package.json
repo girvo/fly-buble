@@ -17,7 +17,7 @@
     "test": "xo && npm run tape",
     "build": "echo No build task specified.",
     "deploy": "npm run test && git push origin master && npm publish",
-    "tape": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
+    "tape": "node ./node_modules/tape/bin/tape test/*.js"
   },
   "author": {
     "name": "Josh Girvin",
