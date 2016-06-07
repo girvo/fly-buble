@@ -1,6 +1,6 @@
 {
   "name": "fly-buble",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Buble plugin for Fly.",
   "license": "MIT",
   "repository": "https://github.com/girvo/fly-buble",
@@ -25,7 +25,7 @@
     "url": "http://github.com/girvo"
   },
   "dependencies": {
-    "buble": "^0.8.4",
+    "buble": "^0.10.6",
     "object-assign": "^4.1.0"
   },
   "devDependencies": {
