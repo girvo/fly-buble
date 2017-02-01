@@ -29,8 +29,8 @@ npm install -D fly-buble
 ### Example
 
 ```js
-export default function* () {
-  yield this
+export default function* (fly) {
+  yield fly
     .source('src/**/*.js')
     .buble({
       transforms: {
