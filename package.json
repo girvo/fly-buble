@@ -34,8 +34,7 @@
     "xo": "*"
   },
   "engines": {
-    "iojs": ">= 1.0.0",
-    "node": ">= 0.12.0"
+    "node": ">= 6"
   },
   "xo": {
     "semicolon": false,
