@@ -1,15 +1,38 @@
-module.exports = function () {
-	return this.filter('buble', function (data, options) {
-		// doc: Require Bublé for transforming ES2015 to ES5
-		var buble = require('buble')
+const {format, relative} = require('path')
+const {transform} = require('buble')
 
-		// doc: assign for object assignment in Node v0.12
-		var assign = require('object-assign')
+const relPath = obj => relative(obj.dir, format(obj))
 
+module.exports = function (fly) {
+	fly.plugin('buble', {}, function * (file, options) {
 		// doc: Default the incoming options object
-		options = typeof options === 'undefined' ? {} : options
+		options = Object.assign({
+			inline: false,
+			sourceMap: true,
+			file: file.base,
+			source: relPath(file)
+		}, options)
 
-		// doc: Transform and return!
-		return assign({ext: '.js'}, buble.transform(data, options))
+		// doc: Transform data
+		let {code, map} = transform(file.data.toString(), options)
+
+		// doc: Handle sourcemaps
+		if (options.sourceMap) {
+			if (options.inline) {
+				// doc: Append inline sourcemap
+				code += `\n//# sourceMappingURL=${map.toUrl()}`
+			} else {
+				code += `\n//# sourceMappingURL=${options.file}.map`
+				// doc: Create new file
+				this._.files.push({
+					base: `${options.file}.map`,
+					data: map.toString(),
+					dir: file.dir
+				})
+			}
+		}
+
+		// doc: Return contents as Buffer!
+		file.data = new Buffer(code)
 	})
 }

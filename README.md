@@ -20,19 +20,20 @@ All options map directly to what's [available in the Javascript api](https://bub
 Bublé is a very fast ES2015 compiler/transpiler, that aims for a subset of ES2015 that can be easily and quickly compiled to readable ES5, without munging your code or introducing unexpected performance decreases. It does not include a module system nor any ES5 shims, so you're going to want to provide those yourself if required (I recommend Rollup for the module handling, and `es5-shim` is always a good choice). Check out [Bublé's documentation](https://buble.surge.sh/guide/) for more
 information.
 
-### Install
+## Install
 
 ```a
-npm install -D fly-buble
+npm install --save-dev fly-buble
 ```
 
-### Example
+## Usage
 
 ```js
-export default function* () {
-  yield this
+export default function * (fly) {
+  yield fly
     .source('src/**/*.js')
     .buble({
+      inline: true,
       transforms: {
         arrow: true,
         modules: false,
@@ -42,6 +43,24 @@ export default function* () {
     .target('dist/')
 }
 ```
+
+## API
+
+### .buble(options)
+
+To view all Bublé options, visit its [documentation](https://buble.surge.sh/guide/#using-the-javascript-api).
+
+This plugin includes two additional options:
+
+#### options.sourceMap
+Type: `Boolean`<br>
+Default: `true`<br>
+Creates an external sourcemap by default. Disable _all_ mapping behavior by setting this to `false`.
+
+#### options.inline
+Type: `Boolean`<br>
+Default: `false`<br>
+If `true`, will append an internal sourcemap (data URI) to the file's contents **instead of** an external link (default). Also will not create a new `*.js.map` file. Requires that `options.sourceMap` be `true`.
 
 ## License
 
